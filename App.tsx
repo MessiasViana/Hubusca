@@ -2,7 +2,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainStack from './src/navigators/MainStack';
 
 import { ThemeProvider } from 'styled-components';
-import { secondary_color } from './assets/styles/styles';
 import { useColorScheme } from 'react-native';
 
 import themes from './assets/styles/theme';

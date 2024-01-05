@@ -1,60 +1,65 @@
-import React from "react";
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from 'styled-components';
 
-import HomeScreen from "../pages/HomeScreen";
-import ListScreen from "../pages/ListScreen";
-import { primary_color, secondary_color, tertiary_color } from "../../assets/styles/styles";
+import HomeScreen from '../pages/HomeScreen';
+import ListScreen from '../pages/ListScreen';
+import UserScreen from '../pages/UserScreen';
 
-import { AntDesign, Feather} from '@expo/vector-icons'; 
+import { Feather, AntDesign } from '@expo/vector-icons';
 
-const Tab  = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const Stack = () => {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: {
-          backgroundColor: secondary_color,
-          paddingTop: 5,
-          paddingBottom: 5
-        },
-        tabBarActiveTintColor: primary_color
-      }}
-      
-    >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (<AntDesign name="home" size={size} color={color} />),
-          headerTitle: 'Hubusca',
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: secondary_color,
-          },
-          headerTitleStyle: {
-            color: tertiary_color
-          }
-        }}
-      />
-      <Tab.Screen
-        name="List"
-        component={ListScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (<Feather name="list" size={size} color={color} />),
-          headerTitle: 'Hubusca',
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: secondary_color,
-          },
-          headerTitleStyle: {
-            color: tertiary_color
-          }
-        }}
-      
-      />
-    </Tab.Navigator>
-  );
+	const theme = useTheme();
+	const { background_color, primary_color, secondary_detail_color } = theme;
+
+	return (
+		<>
+			<Tab.Navigator
+				screenOptions={{
+					tabBarStyle: {
+						backgroundColor: background_color,
+						paddingTop: 5,
+						paddingBottom: 5,
+					},
+					tabBarActiveTintColor: secondary_detail_color,
+					headerTitle: 'Hubusca',
+					headerTitleAlign: 'center',
+					headerStyle: {
+						backgroundColor: background_color
+					},
+					headerTitleStyle: {
+						color: primary_color,
+					}
+				}}
+			>
+				<Tab.Screen
+					name="Home"
+					component={HomeScreen}
+					options={{
+						tabBarIcon: ({ color, size }) => <AntDesign name="home" size={size} color={color} />
+					}}
+				/>
+
+				<Tab.Screen
+					name="List"
+					component={ListScreen}
+					options={{
+						tabBarIcon: ({ color, size }) => <Feather name="list" size={size} color={color} />
+					}}
+				/>
+
+				<Tab.Screen
+					name="UserScreen"
+					component={UserScreen}
+					options={{
+						tabBarButton: () => null
+					}}
+				/>
+			</Tab.Navigator>
+		</>
+	);
 };
 
 export default Stack;

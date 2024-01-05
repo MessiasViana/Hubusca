@@ -5,7 +5,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 const ListScreen = () => { 
-
   return (
     <SafeAreaView style={styles.container}>
     </SafeAreaView>

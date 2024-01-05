@@ -6,26 +6,24 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-// Input styled component
 export const Input = styled.TextInput`
-  background-color: ${props => props.theme.secondary_color};
   min-width: 200px;
   width: 100%;
-  height: 40px;
   margin: 12px;
-  border-width: 1px;
-  padding: 10px;
+  color: ${props => props.theme.primary_color};
+
+  border: 1px solid ${props => props.theme.secondary_color};
   border-radius: 10px;
-  border-color: ${props => props.theme.secondary_color};
-  color: white;
+  font-size: 15px;
+  padding: 10px;
 `;
 
-export const Button = styled.TouchableOpacity`
-  background-color: ${props => props.theme.secondary_color};
+export const View = styled.View`
+  border: 1px solid ${props => props.theme.secondary_color};
   padding: 15px;
   max-width: 100px;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 10px;
 `;
 
 export const TextButton = styled.Text`
