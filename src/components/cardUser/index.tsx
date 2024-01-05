@@ -15,7 +15,7 @@ const CardUser: React.FC<CardUserProps> = ({ user }) => {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
 
   const handleImageClick = () => {
-    navigation.navigate('UserScreen', user);
+    navigation.navigate('UserScreen', { user });
   };
 
   const { avatar_url, name, login, location } = user;

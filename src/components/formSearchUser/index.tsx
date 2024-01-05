@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import searchUserData from "../../api/axios";
 import { View, Container, Input, TextButton } from "./styles";
 import { Pressable } from "react-native";
 import { User } from "../../types/userTypes";
+import { searchUser } from "../../api/userAPI";
 
 interface FormProps {
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
-  setError: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setError: React.Dispatch<React.SetStateAction<boolean | undefined>>;
 }
 
 const Form: React.FC<FormProps> = ({ setUser, setError }) => { 
@@ -17,19 +17,19 @@ const Form: React.FC<FormProps> = ({ setUser, setError }) => {
     if (!name) return setUser(undefined);
 
     try {
-      const user = await searchUserData(name.trim());
+      const user = await searchUser(name.trim());
 
       if (user) { 
-        setError(undefined);
+        setError(false);
         setUser(user);
-        return 
+        return;
       }
 
       throw new Error('Usuário não encontrado');
     } catch (error) { 
-      console.log("Erro ao tentar pegar usuário", error);
+      console.log("Erro ao tentar encontrar usuário", error);
       setUser(undefined)
-      setError('Usuário não encontrado. Verifique o nome e tente novamente.');
+      setError(true);
     }
 
   }
@@ -40,7 +40,7 @@ const Form: React.FC<FormProps> = ({ setUser, setError }) => {
         onChangeText={(text) => setName(text)}
         onSubmitEditing={handleRequestUserData}
         value={name}
-        placeholder="Pesquisar"
+        placeholder="Pesquisar GitHub"
       />
 
       <Pressable onPress={handleRequestUserData}>

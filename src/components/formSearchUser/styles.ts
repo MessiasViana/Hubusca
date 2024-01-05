@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  max-width: 70%;
+  max-width: 65%;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 `;
 
 export const Input = styled.TextInput`
-  min-width: 200px;
   width: 100%;
   margin: 12px;
   color: ${props => props.theme.primary_color};

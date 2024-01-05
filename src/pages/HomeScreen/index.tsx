@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Form from "../../components/formSearchUser/Form";
-import { Container } from "./styles";
+import Form from "../../components/formSearchUser";
+import { Container, ErrorArea, ErrorText } from "./styles";
 import CardUser from "../../components/cardUser";
 import { User } from "../../types/userTypes";
-import { Text } from "react-native";
 
 const HomeScreen = () => {
   const [user, setUser] = useState<User>();
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<boolean>();
 
   return (
     <Container>
@@ -17,8 +16,17 @@ const HomeScreen = () => {
         <CardUser user={user} />
       }
 
+      {!user && 
+        <ErrorArea>
+          <ErrorText>Digite o nome do Github.</ErrorText>
+        </ErrorArea>
+      }
+
       {error && 
-        <Text>{error}</Text>
+        <ErrorArea>
+          <ErrorText>Usuário não encontrado.</ErrorText>
+          <ErrorText>Verifique o nome e tente novamente!</ErrorText>
+        </ErrorArea>
       }
 
     </Container>

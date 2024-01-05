@@ -10,7 +10,7 @@ export default function App() {
   const deviceTheme = useColorScheme();
   let theme = themes.dark;
 
-  if (deviceTheme) theme = themes[deviceTheme] || themes.dark;
+  if (deviceTheme) theme = themes[deviceTheme];
 
   return (
     <NavigationContainer>
