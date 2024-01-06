@@ -57,7 +57,8 @@ const Repositories = ({ login }: Props) => {
 							</Informations>
 						</RepositoryContainer>
 					</TouchableOpacity>
-				))}
+				))
+			}
 			
 			{repositories && repositories?.length < 1 &&
 				<ErrorText>Nenhum repositório encontrado.</ErrorText>

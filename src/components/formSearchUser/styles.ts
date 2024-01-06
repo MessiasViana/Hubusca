@@ -12,14 +12,16 @@ export const Input = styled.TextInput`
   margin: 12px;
   color: ${props => props.theme.primary_color};
 
-  border: 1px solid ${props => props.theme.secondary_color};
+  border: 1px solid ${props => props.theme.secondary_detail_color};
   border-radius: 10px;
   font-size: 15px;
   padding: 10px;
 `;
 
+export const Button = styled.TouchableOpacity``
+
 export const View = styled.View`
-  border: 1px solid ${props => props.theme.secondary_color};
+  border: 1px solid ${props => props.theme.secondary_detail_color};
   padding: 15px;
   max-width: 100px;
   align-items: center;

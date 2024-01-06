@@ -1,22 +1,26 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { useContext, useState } from 'react';
+import { User } from '../../types/userTypes';
+import { Container, Title } from './styles';
+import CardUser from '../../components/cardUser';
+import { RecentUsersContext } from '../../contexts/recentUsers';
+import { ScrollView } from 'react-native';
 
+const ListScreen = () => {
+	const recentUsers = useContext(RecentUsersContext);
 
+	return (
+		<ScrollView>
+			<Container>
+				<Title>Últimas buscas</Title>
 
-const ListScreen = () => { 
-  return (
-    <SafeAreaView style={styles.container}>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
+				{recentUsers?.recentUsers &&
+					recentUsers?.recentUsers?.length > 0 &&
+					recentUsers?.recentUsers.map((item) => (
+						<CardUser user={item} key={item.id} />
+					))}
+			</Container>
+		</ScrollView>
+	);
+};
 
 export default ListScreen;

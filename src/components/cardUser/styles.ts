@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   margin-top: 25px;
   justify-content: center;
   align-items: center;
-  border: 2px solid ${props => props.theme.detail_color};
+  border: 2px solid ${props => props.theme.secondary_detail_color};
   border-radius: 10px;
+  width: 90%;
 `;
 
 export const Content = styled.View`
@@ -17,7 +18,7 @@ export const Avatar = styled.Image`
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  border-color: ${props => props.theme.detail_color};
+  border-color: ${props => props.theme.secondary_detail_color};
   border-width: 2px;
 `;
 

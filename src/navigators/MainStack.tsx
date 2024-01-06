@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 
 const Stack = () => {
 	const theme = useTheme();
-	const { background_color, primary_color, secondary_detail_color } = theme;
+	const { background_color, primary_color, secondary_detail_color, detail_color } = theme;
 
 	return (
 		<>
@@ -30,7 +30,7 @@ const Stack = () => {
 						backgroundColor: background_color
 					},
 					headerTitleStyle: {
-						color: primary_color,
+						color: detail_color,
 					}
 				}}
 			>
@@ -43,7 +43,7 @@ const Stack = () => {
 				/>
 
 				<Tab.Screen
-					name="List"
+					name="Lista"
 					component={ListScreen}
 					options={{
 						tabBarIcon: ({ color, size }) => <Feather name="list" size={size} color={color} />

@@ -16,7 +16,7 @@ const HomeScreen = () => {
         <CardUser user={user} />
       }
 
-      {!user && 
+      {!user && !error &&
         <ErrorArea>
           <ErrorText>Digite o nome do Github.</ErrorText>
         </ErrorArea>

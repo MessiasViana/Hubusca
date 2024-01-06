@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { View, Container, Input, TextButton } from "./styles";
-import { Pressable } from "react-native";
+import React, { useContext, useState } from "react";
+import { View, Container, Input, TextButton, Button } from "./styles";
 import { User } from "../../types/userTypes";
 import { searchUser } from "../../api/userAPI";
+import { RecentUsersContext } from "../../contexts/recentUsers";
 
 interface FormProps {
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
@@ -10,9 +10,9 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ setUser, setError }) => { 
+  const recentUsers = useContext(RecentUsersContext);
   const [name, setName] = useState('');
-
-
+  
   const handleRequestUserData = async () => {
     if (!name) return setUser(undefined);
 
@@ -22,6 +22,13 @@ const Form: React.FC<FormProps> = ({ setUser, setError }) => {
       if (user) { 
         setError(false);
         setUser(user);
+
+        let isUserPresent = recentUsers?.recentUsers.some((existingUser) => existingUser.id === user.id);
+
+        if (!isUserPresent) {
+          recentUsers?.setRecentUsers((prevUsers) => [...prevUsers, user]);
+        }
+
         return;
       }
 
@@ -43,11 +50,11 @@ const Form: React.FC<FormProps> = ({ setUser, setError }) => {
         placeholder="Pesquisar GitHub"
       />
 
-      <Pressable onPress={handleRequestUserData}>
+      <Button onPress={handleRequestUserData}>
         <View>
           <TextButton>Buscar</TextButton>
         </View>
-      </Pressable>
+      </Button>
     </Container>
   )
 }
