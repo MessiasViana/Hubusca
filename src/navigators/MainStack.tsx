@@ -12,14 +12,14 @@ const Tab = createBottomTabNavigator();
 
 const Stack = () => {
 	const theme = useTheme();
-	const { background_color, primary_color, secondary_detail_color, detail_color } = theme;
+	const { secondary_background_color, secondary_detail_color, detail_color } = theme;
 
 	return (
 		<>
 			<Tab.Navigator
 				screenOptions={{
 					tabBarStyle: {
-						backgroundColor: background_color,
+						backgroundColor: secondary_background_color,
 						paddingTop: 5,
 						paddingBottom: 5,
 					},
@@ -27,7 +27,7 @@ const Stack = () => {
 					headerTitle: 'Hubusca',
 					headerTitleAlign: 'center',
 					headerStyle: {
-						backgroundColor: background_color
+						backgroundColor: secondary_background_color
 					},
 					headerTitleStyle: {
 						color: detail_color,

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "app-hubusca",
+    "name": "Hubusca",
     "slug": "app-hubusca",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.messiasviana.apphubusca"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3b980335-f1d2-430e-a963-6b1c9f17d618"
+      }
     }
   }
 }

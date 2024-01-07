@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+export const Scroll = styled.ScrollView`
+  background-color: ${props => props.theme.background_color};
+`;
+
 export const Container = styled.SafeAreaView`
   align-items: center;
   margin-top: 20px;

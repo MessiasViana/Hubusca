@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 export const Container = styled.SafeAreaView`
   flex: 1;
   align-items: center;
-  margin-top: 20px;
+  padding-top: 20px;
+  background-color: ${props => props.theme.background_color};
 `;
 
 export const ErrorArea = styled.View`
@@ -17,6 +18,7 @@ export const ErrorText = styled.Text`
   font-weight: bold;
   margin: 0 30px;
   text-align: center;
+  color: ${props => props.theme.primary_color}
 `;
 
 

@@ -3,6 +3,7 @@ import MainStack from './src/navigators/MainStack';
 
 import { ThemeProvider } from 'styled-components';
 import { useColorScheme } from 'react-native';
+import { StatusBar } from 'react-native';
 
 import themes from './assets/styles/theme';
 import { RecentUsersContext } from './src/contexts/recentUsers';
@@ -18,6 +19,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor={theme.primary_color} />
       <ThemeProvider theme={theme}>
         <RecentUsersContext.Provider value={{ recentUsers, setRecentUsers }}>
           <MainStack />

@@ -26,6 +26,7 @@ export const View = styled.View`
   max-width: 100px;
   align-items: center;
   border-radius: 10px;
+  color: ${props => props.theme.primary_color};
 `;
 
 export const TextButton = styled.Text`

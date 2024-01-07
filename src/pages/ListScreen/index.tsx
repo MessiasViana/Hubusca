@@ -1,25 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { User } from '../../types/userTypes';
-import { Container, Title } from './styles';
+import { Container, RecentUsersConainer, Scroll, Title } from './styles';
 import CardUser from '../../components/cardUser';
 import { RecentUsersContext } from '../../contexts/recentUsers';
-import { ScrollView } from 'react-native';
 
 const ListScreen = () => {
 	const recentUsers = useContext(RecentUsersContext);
 
 	return (
-		<ScrollView>
+		<Scroll>
 			<Container>
 				<Title>Últimas buscas</Title>
 
-				{recentUsers?.recentUsers &&
-					recentUsers?.recentUsers?.length > 0 &&
-					recentUsers?.recentUsers.map((item) => (
-						<CardUser user={item} key={item.id} />
-					))}
+				<RecentUsersConainer>
+					{recentUsers?.recentUsers &&
+						recentUsers?.recentUsers?.length > 0 &&
+						recentUsers?.recentUsers.map((item) => (
+							<CardUser user={item} key={item.id} />
+						))
+					}
+				</RecentUsersConainer>
 			</Container>
-		</ScrollView>
+		</Scroll>
 	);
 };
 

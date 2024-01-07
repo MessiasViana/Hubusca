@@ -7,12 +7,14 @@ import { Repository } from '../../types/repositoriesTypes';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import formatDate from '../../utils/formatDate';
 import handlePressGoToGithub from '../../utils/goToGithub';
+import { useTheme } from 'styled-components';
 
 interface Props {
 	login: string;
 }
 
 const Repositories = ({ login }: Props) => {
+	const { primary_color } = useTheme();
 	const [repositories, setRepositories] = useState<Repository[]>();
 
 	const handleRequestRepositories = async () => {
@@ -44,7 +46,7 @@ const Repositories = ({ login }: Props) => {
 							<MaterialCommunityIcons
 								name="source-repository"
 								size={50}
-								color="black"
+								color={primary_color}
 							/>
 
 							<Informations>

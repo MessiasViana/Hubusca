@@ -5,12 +5,13 @@ import {
 	InformationContainer,
 	Label,
 	RepositoriesContainer,
+	Scroll,
 	TitleInformations,
 } from './styles';
 import { useRoute } from '@react-navigation/native';
 import { User } from '../../types/userTypes';
 import CardUser from '../../components/cardUser';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import Repositories from '../../components/repositories';
 
 const HomeScreen = () => {
@@ -26,7 +27,7 @@ const HomeScreen = () => {
 
 		return (
       <>
-        <ScrollView>
+        <Scroll>
           <Container>
             <CardUser user={user} />
           </Container>
@@ -46,7 +47,7 @@ const HomeScreen = () => {
           <RepositoriesContainer>
             <Repositories login={login} />
           </RepositoriesContainer>
-        </ScrollView>
+        </Scroll>
 			</>
 		);
 	}

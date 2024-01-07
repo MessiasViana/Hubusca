@@ -6,7 +6,7 @@ export const Container = styled.View`
   align-items: center;
   border: 2px solid ${props => props.theme.secondary_detail_color};
   border-radius: 10px;
-  width: 90%;
+  min-width: 80%;
 `;
 
 export const Content = styled.View`

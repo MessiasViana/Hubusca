@@ -46,4 +46,5 @@ export const ErrorText = styled.Text`
   font-weight: bold;
   margin: 0 30px;
   text-align: center;
+  color: ${props => props.theme.primary_color};
 `;
